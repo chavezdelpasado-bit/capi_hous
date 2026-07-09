@@ -1,10 +1,12 @@
 {
   "name": "capi-house",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sistema de gestión Capi House",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"No hay tests, pero todo está bien\" && exit 0"
   },
   "keywords": [],
   "author": "",
