@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CAPI HOUSE | Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/clientes.css"> 
+    <link rel="stylesheet" href="/css/productos.css"> 
+    <link rel="stylesheet" href="/css/ventas.css">
+    <link rel="stylesheet" href="/css/reservas.css">
+    <link rel="stylesheet" href="/css/empleados.css">
+    <link rel="stylesheet" href="/css/reportes.css">
+    
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-champagne-glasses"></i>
+
+            <h2>CAPI HOUSE</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="menu-item active" data-module="inicio">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Inicio
+
+            </li>
+
+            <li class="menu-item" data-module="productos">
+
+                <i class="fa-solid fa-box"></i>
+
+                Productos
+
+            </li>
+
+            <li class="menu-item" data-module="clientes">
+
+                <i class="fa-solid fa-users"></i>
+
+                Clientes
+
+            </li>
+
+            <li class="menu-item" data-module="reservas">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                Reservas
+
+            </li>
+
+            <li class="menu-item" data-module="ventas">
+
+                <i class="fa-solid fa-cash-register"></i>
+
+                Ventas
+
+            </li>
+
+            <li class="menu-item" data-module="empleados">
+
+                <i class="fa-solid fa-user-tie"></i>
+
+                Empleados
+
+            </li>
+
+            <li class="menu-item" data-module="reportes">
+
+                <i class="fa-solid fa-file-pdf"></i>
+
+                Reportes
+
+            </li>
+
+            <li class="menu-item" data-module="cierre_caja">
+                <i class="fa-solid fa-vault"></i>
+                Cierre de Caja
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- CONTENIDO -->
+
+    <main class="main">
+
+        <header>
+
+            <h1 id="tituloModulo">
+
+                Inicio
+
+            </h1>
+
+            <div class="user">
+
+                <i class="fa-solid fa-user"></i>
+
+                <span id="usuario"></span>
+
+                <button id="logout">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Aquí se cargan TODOS los módulos -->
+
+        <section id="contenido"></section>
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/router.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/modules/ventas.js"></script>
+    
+</body>
+</html>

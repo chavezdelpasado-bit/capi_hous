@@ -1,0 +1,169 @@
+<div class="ventas-container">
+  <div class="ventas-tabs">
+    <button class="venta-tab-btn active" data-tab="nueva">Nueva Venta</button>
+    <button class="venta-tab-btn" data-tab="historial">Historial</button>
+  </div>
+
+  <!-- TAB: NUEVA VENTA (POS) -->
+  <section id="tab-nueva" class="venta-tab-content active">
+    <div class="pos-grid">
+      <!-- Columna izquierda: catálogo de productos -->
+      <div class="pos-catalogo">
+        <div class="pos-filtros">
+          <select id="filtroMesa" class="input-dark"></select>
+          <select id="filtroZona" class="input-dark"></select>
+          <select id="filtroCategoria" class="input-dark">
+            <option value="">Todas las categorías</option>
+          </select>
+          <input type="text" id="buscarProducto" class="input-dark" placeholder="Buscar producto...">
+        </div>
+        <div id="listaProductos" class="pos-productos"></div>
+      </div>
+
+      <!-- Columna derecha: pedido / carrito -->
+      <div class="pos-carrito">
+        <h3>Pedido</h3>
+        <div class="pos-campo posicion-relativa">
+          <label>Cliente</label>
+          <div id="cliente-search-container">
+            <input type="text" id="buscarCliente" class="input-dark" placeholder="Buscar por nombre, DNI o RUC" autocomplete="off">
+            <ul id="lista-sugerencias-cliente" class="sugerencias-dropdown oculto"></ul>
+          </div>
+          <div id="cliente-seleccionado-container" class="oculto">
+            <span class="chip-dorado">
+              <span id="nombre-cliente-seleccionado"></span>
+              <button id="btn-remover-cliente" class="btn-remover-chip">&times;</button>
+            </span>
+          </div>
+        </div>
+        <input type="hidden" id="idClienteSeleccionado" name="idCliente">
+
+        <div id="carritoItems" class="pos-carrito-items">
+          <p class="pos-vacio">Aún no agregas productos</p>
+        </div>
+
+        <div class="pos-campo">
+          <label>Método de pago</label>
+          <select id="metodoPago" class="input-dark"></select>
+        </div>
+
+        <div class="pos-campo">
+          <label>Comprobante</label>
+          <select id="tipoDocumento" class="input-dark">
+            <option value="B">Boleta</option>
+            <option value="F">Factura</option>
+          </select>
+        </div>
+
+        <div class="pos-totales">
+          <div><span>Subtotal</span><span id="totalSubtotal">S/ 0.00</span></div>
+          <div><span>IGV (18%)</span><span id="totalIgv">S/ 0.00</span></div>
+          <div class="pos-total-final"><span>Total</span><span id="totalPagar">S/ 0.00</span></div>
+        </div>
+
+        <button id="btnRegistrarVenta" class="btn-gold">Registrar venta</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB: HISTORIAL -->
+  <section id="tab-historial" class="venta-tab-content">
+    <div class="filtros-historial">
+      <input type="date" id="filtroDesde" class="input-dark">
+      <input type="date" id="filtroHasta" class="input-dark">
+      <select id="filtroDocumento" class="input-dark">
+        <option value="">Todos los comprobantes</option>
+        <option value="B">Boleta</option>
+        <option value="F">Factura</option>
+      </select>
+      <button id="btnFiltrarHistorial" class="btn-outline">Filtrar</button>
+
+      <!-- BOTONES DE EXPORTACIÓN (reporte general) -->
+      <button id="btnExportarExcel" class="btn-outline btn-excel">📥 Excel</button>
+      <button id="btnExportarPDF" class="btn-outline btn-pdf">📄 PDF</button>
+    </div>
+
+    <table class="tabla-ventas">
+      <thead>
+        <tr>
+          <th>N° Venta</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Mesa</th>
+          <th>Comprobante</th>
+          <th>Método de pago</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tablaVentasBody"></tbody>
+    </table>
+    <div id="paginacionVentas" class="paginacion"></div>
+  </section>
+</div>
+
+<!-- Modal detalle de venta -->
+<div id="modalDetalleVenta" class="modal-overlay oculto">
+  <div class="modal-box">
+    <button class="modal-cerrar" id="cerrarModalDetalle">&times;</button>
+    <div id="contenidoDetalleVenta"></div>
+    <!-- BOTONES DE EXPORTACIÓN (detalle individual) -->
+    <div class="modal-acciones" style="margin-top: 20px; display: flex; gap: 10px;">
+      <button id="btnDescargarTicket" class="btn-gold">🖨️ Ticket (Img)</button>
+      <button id="btnExportarDetallePDF" class="btn-outline btn-pdf">📄 PDF</button>
+      <button id="btnExportarDetalleExcel" class="btn-outline btn-excel">📥 Excel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: elegir tipo de comprobante para el reporte general -->
+<div id="modalTipoReporte" class="modal-overlay oculto">
+  <div class="modal-box" style="width:min(360px, 90vw);">
+    <button class="modal-cerrar" id="cerrarModalTipoReporte">&times;</button>
+    <h3 style="margin-top:0;">¿Qué comprobantes incluir?</h3>
+    <div style="display:flex; flex-direction:column; gap:10px; margin-top:16px;">
+      <button class="btn-outline" data-tipo="B">Solo Boletas</button>
+      <button class="btn-outline" data-tipo="F">Solo Facturas</button>
+      <button class="btn-gold" data-tipo="">Ambos</button>
+    </div>
+  </div>
+</div>
+
+<!-- PLANTILLA OCULTA PARA EL TICKET TÉRMICO -->
+<div id="contenedor-ticket-oculto" class="ticket-wrapper-oculto">
+  <div id="ticket-impresion" class="ticket-termico">
+    <div class="tk-centrado">
+      <h2 style="margin:0 0 5px 0;">CAPI HOUSE</h2>
+      <p style="margin:0;">RUC: 20123456789</p>
+      <p style="margin:0;">Av. Ejemplo 123 - Ica</p>
+      <p style="margin:0;">--------------------------------</p>
+      <h3 id="tk-tipo-doc" style="margin:5px 0;">COMPROBANTE DE VENTA</h3>
+      <p style="margin:0;">--------------------------------</p>
+    </div>
+    <div class="tk-info">
+      <p><strong>FECHA:</strong> <span id="tk-fecha"></span></p>
+      <p><strong>CLIENTE:</strong> <span id="tk-cliente"></span></p>
+      <p><strong>MESA:</strong> <span id="tk-mesa"></span></p>
+      <p><strong>PAGO:</strong> <span id="tk-pago"></span></p>
+    </div>
+    <p style="margin:5px 0; text-align:center;">--------------------------------</p>
+    <div class="tk-header-tabla">
+      <span style="flex:2;">DESCRIPCIÓN</span>
+      <span style="flex:1; text-align:right;">CANT.</span>
+      <span style="flex:1; text-align:right;">TOTAL</span>
+    </div>
+    <p style="margin:2px 0; text-align:center;">--------------------------------</p>
+    <div id="tk-items" class="tk-items"></div>
+    <p style="margin:5px 0; text-align:center;">--------------------------------</p>
+    <div class="tk-totales">
+      <div class="tk-fila-total"><span>SUBTOTAL:</span><span id="tk-sub"></span></div>
+      <div class="tk-fila-total"><span>IGV:</span><span id="tk-igv"></span></div>
+      <div class="tk-fila-total tk-gran-total"><span>TOTAL:</span><span id="tk-total"></span></div>
+    </div>
+    <p style="margin:10px 0; text-align:center;">--------------------------------</p>
+    <div class="tk-centrado">
+      <p style="margin:0;">¡GRACIAS POR SU COMPRA!</p>
+      <p style="margin:0;">VUELVA PRONTO</p>
+    </div>
+  </div>
+</div>

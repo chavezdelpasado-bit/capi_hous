@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPI HOUSE | Login</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="background">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+    </div>
+    <main class="login-container">
+        <section class="login-card">
+            <div class="logo">
+                <i class="fa-solid fa-champagne-glasses"></i>
+                <h1>CAPI HOUSE</h1>
+                <span>Sistema de Administración</span>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Usuario</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-user"></i>
+                        <input
+                            type="text"
+                            id="login"
+                            placeholder="Ingrese su usuario"
+                            autocomplete="username"
+                            required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Contraseña</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-lock"></i>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Ingrese su contraseña"
+                            autocomplete="current-password"
+                            required>
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="toggle-password">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Rol</label>
+                    <div class="input-box">
+                        <i class="fa-solid fa-user-tag"></i>
+                        <select id="rol" required>
+                            <option value="" disabled selected>Seleccione un rol</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Cliente">Cliente</option>
+                            <option value="Empleado">Empleado</option>
+                        </select>
+                    </div>
+                </div>
+                <button
+                    type="submit"
+                    id="btnLogin"
+                    class="btn-login">
+                    <span>Iniciar Sesión</span>
+                </button>
+                <div
+                    id="message"
+                    class="message">
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="js/login.js"></script>
+</body>
+</html>

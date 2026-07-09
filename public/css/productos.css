@@ -1,0 +1,194 @@
+.productos-container{
+    padding:30px;
+    font-family:'Poppins',sans-serif;
+}
+
+.titulo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.titulo h2{
+    color:#333;
+    font-size:28px;
+    font-weight:600;
+}
+
+#btnNuevoProducto{
+    background:#2e7d32;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+#btnNuevoProducto:hover{
+    background:#1b5e20;
+}
+
+.busqueda{
+    margin-bottom:20px;
+}
+
+#txtBuscar{
+    width:350px;
+    max-width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+thead{
+    background:#20232a;
+    color:white;
+}
+
+th{
+    padding:15px;
+    text-align:center;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+    color:#222;
+}
+
+tbody tr:hover{
+    background:#f7f7f7;
+}
+
+.btnEditar{
+
+    background:#1976d2;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    margin-right:5px;
+
+}
+
+.btnEliminar{
+
+    background:#d32f2f;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+
+}
+
+/* ========================= */
+
+.modal{
+
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.45);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+
+}
+
+.modal-content{
+
+    background:white;
+    width:520px;
+    padding:30px;
+    border-radius:12px;
+
+}
+
+.modal-content h3{
+
+    margin-bottom:20px;
+    color:#222;
+
+}
+
+.modal-content label{
+
+    display:block;
+    margin-top:12px;
+    font-weight:500;
+    color:#333;
+
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select{
+
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-sizing:border-box;
+    color:#222;
+
+}
+
+.modal-content textarea{
+
+    resize:none;
+    height:80px;
+
+}
+
+.botones{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:25px;
+
+}
+
+.botones button{
+
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+
+.botones button[type="submit"]{
+
+    background:#2e7d32;
+    color:white;
+
+}
+
+#btnCerrar{
+
+    background:#757575;
+    color:white;
+
+}

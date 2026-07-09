@@ -1,0 +1,225 @@
+<div class="empleados-container">
+
+    <div class="empleados-header">
+
+        <h2>Gestión de Empleados</h2>
+
+        <button id="btnNuevoEmpleado">
+            <i class="fa-solid fa-plus"></i>
+            Nuevo Empleado
+        </button>
+
+    </div>
+
+    <div class="empleados-toolbar">
+
+        <input
+            type="text"
+            id="txtBuscarEmpleado"
+            placeholder="Buscar por nombre o DNI..."
+        >
+
+    </div>
+
+    <table class="tabla-empleados">
+
+        <thead>
+
+            <tr>
+
+                <th>DNI</th>
+                <th>Empleado</th>
+                <th>Cargo</th>
+                <th>Contrato</th>
+                <th>Salario</th>
+                <th>Turno</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tablaEmpleados">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ============================= -->
+<!-- MODAL EMPLEADO -->
+<!-- ============================= -->
+
+<div class="modal" id="modalEmpleado">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h3 id="tituloModal">
+                Nuevo Empleado
+            </h3>
+
+        </div>
+
+        <form id="formEmpleado">
+
+            <input type="hidden" id="idEmpleado">
+
+            <div class="grid">
+
+                <div>
+
+                    <label>DNI</label>
+
+                    <input
+                        type="text"
+                        id="dni"
+                        maxlength="8"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Nombres</label>
+
+                    <input
+                        type="text"
+                        id="nombres"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Apellido Paterno</label>
+
+                    <input
+                        type="text"
+                        id="apePaterno"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Apellido Materno</label>
+
+                    <input
+                        type="text"
+                        id="apeMaterno"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Celular</label>
+
+                    <input
+                        type="text"
+                        id="celular"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Correo</label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Dirección</label>
+
+                    <input
+                        type="text"
+                        id="direccion"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Salario</label>
+
+                    <input
+                        type="number"
+                        id="salario"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Turno</label>
+
+                    <input
+                        type="text"
+                        id="turno"
+                        placeholder="Mañana / Tarde / Noche"
+                    >
+
+                </div>
+
+                <div>
+
+                    <label>Cargo</label>
+
+                    <select id="idCargo" required>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label>Contrato</label>
+
+                    <select id="idContrato" required>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="acciones-modal">
+
+                <button
+                    type="submit"
+                    class="btnGuardar"
+                >
+                    Guardar
+                </button>
+
+                <button
+                    type="button"
+                    class="btnCancelar"
+                    id="btnCancelar"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="reportes-container">
+
+    <div class="page-header">
+        <div>
+            <p class="brand-mark">Panel administrativo</p>
+            <h1>Reportes</h1>
+            <p class="subtitle">Genera y exporta reportes de la operación del negocio</p>
+        </div>
+
+        <button id="btnGenerarReporte" class="btn-yellow">
+            <i class="fa-solid fa-chart-column"></i>
+            Generar Reporte
+        </button>
+    </div>
+
+    <form id="formFiltros" class="filtros">
+
+        <div>
+            <label class="field-label" for="tipoReporte">Tipo de reporte</label>
+            <select id="tipoReporte" class="field-select">
+                <option value="ventas">Ventas</option>
+                <option value="empleados">Empleados</option>
+                <option value="productos">Productos</option>
+                <option value="reservas">Reservas</option>
+            </select>
+        </div>
+
+        <div>
+            <label class="field-label" for="fechaInicio">Fecha inicio</label>
+            <input type="date" id="fechaInicio" class="field-input">
+        </div>
+
+        <div>
+            <label class="field-label" for="fechaFin">Fecha fin</label>
+            <input type="date" id="fechaFin" class="field-input">
+        </div>
+
+    </form>
+
+    <div class="acciones">
+        <button id="btnPDF" class="btn-ghost" type="button">
+            <i class="fa-solid fa-file-pdf"></i>
+            Exportar PDF
+        </button>
+
+        <button id="btnExcel" class="btn-ghost" type="button">
+            <i class="fa-solid fa-file-excel"></i>
+            Exportar Excel
+        </button>
+    </div>
+
+    <div id="contenedorReporte" aria-live="polite">
+        <div class="empty-state">
+            <span class="glass">
+                <i class="fa-solid fa-chart-simple"></i>
+            </span>
+            <h4>Ningún reporte generado todavía</h4>
+            <p>Selecciona un tipo de reporte y un rango de fechas, luego presiona "Generar Reporte".</p>
+        </div>
+    </div>
+
+</div>

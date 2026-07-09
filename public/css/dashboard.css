@@ -1,0 +1,287 @@
+/*==============================
+        CAPI HOUSE DASHBOARD
+==============================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    display:flex;
+    min-height:100vh;
+    background:#0b0b0b;
+    color:#fff;
+
+}
+
+/*==============================
+            SIDEBAR
+==============================*/
+
+.sidebar{
+
+    width:260px;
+    background:#121212;
+    border-right:1px solid rgba(255,255,255,.08);
+    padding:25px 0;
+    box-shadow:8px 0 25px rgba(0,0,0,.35);
+
+}
+
+.logo{
+
+    text-align:center;
+    margin-bottom:45px;
+
+}
+
+.logo i{
+
+    font-size:45px;
+    color:#D4AF37;
+    margin-bottom:10px;
+
+}
+
+.logo h2{
+
+    color:white;
+    font-weight:600;
+    letter-spacing:2px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:18px 30px;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    font-size:15px;
+
+}
+
+.sidebar li:hover{
+
+    background:#8B5CF6;
+
+}
+
+.sidebar li.active{
+
+    background:#D4AF37;
+    color:#111;
+    font-weight:600;
+
+}
+
+.sidebar li i{
+
+    width:20px;
+
+}
+
+/*==============================
+          CONTENIDO
+==============================*/
+
+.main{
+
+    flex:1;
+    padding:35px;
+
+}
+
+/*==============================
+            HEADER
+==============================*/
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+
+}
+
+header h1{
+
+    font-size:32px;
+
+}
+
+.user{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.user i{
+
+    color:#D4AF37;
+
+}
+
+.user button{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#8B5CF6;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+.user button:hover{
+
+    transform:scale(1.08);
+
+}
+
+/*==============================
+            TARJETAS
+==============================*/
+
+.cards{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 0 30px rgba(139,92,246,.35);
+
+}
+
+.card h3{
+
+    color:#bbb;
+    margin-bottom:15px;
+
+}
+
+.card h2{
+
+    color:#D4AF37;
+    font-size:34px;
+
+}
+
+/*==============================
+            GRÁFICO
+==============================*/
+
+.chart{
+
+    margin-top:40px;
+
+    background:rgba(255,255,255,.06);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    height:430px;
+
+}
+
+canvas{
+
+    width:100% !important;
+    height:100% !important;
+
+}
+
+/*==============================
+         RESPONSIVE
+==============================*/
+
+@media(max-width:900px){
+
+body{
+
+    flex-direction:column;
+
+}
+
+.sidebar{
+
+    width:100%;
+
+}
+
+header{
+
+    flex-direction:column;
+    gap:20px;
+
+}
+
+}
+/* ======================================
+   CONTENEDOR POWER BI - INICIO
+   ====================================== */
+
+.powerbi-wrapper {
+    width: 100%;
+    /* Calcula el alto de la pantalla menos el espacio de arriba (header + tarjetas) */
+    height: calc(100vh - 250px); 
+    min-height: 500px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #1e1e1e; /* Color oscuro de fondo */
+    overflow: hidden;
+    display: block;
+}
+
+.powerbi-wrapper iframe {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    display: block;
+}

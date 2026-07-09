@@ -1,0 +1,270 @@
+:root{
+  --bg:#0d0b09;
+  --surface:#17130f;
+  --surface-2:#1f1a15;
+  --border:#2c251d;
+  --gold:#cda15a;
+  --gold-bright:#e8c07d;
+  --text:#f2ece2;
+  --text-muted:#93887a;
+  --persona:#8bab86;
+  --persona-bg:rgba(139,171,134,0.1);
+  --empresa:#c1793f;
+  --empresa-bg:rgba(193,121,63,0.12);
+}
+
+.reservas-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  position:relative;
+  box-shadow:0 20px 50px rgba(0,0,0,0.45);
+}
+
+.reservas-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:24px;
+  right:24px;
+  height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity:0.6;
+}
+
+.toolbar{
+  display:flex;
+  gap:14px;
+  margin-bottom:22px;
+  flex-wrap:wrap;
+}
+
+.filtro-estado{
+  max-width:200px;
+}
+
+.badge-pendiente{
+  background:rgba(232,192,125,0.12);
+  color:var(--gold-bright);
+}
+
+.badge-confirmada{
+  background:rgba(139,171,134,0.12);
+  color:var(--persona);
+}
+
+.badge-atendida{
+  background:rgba(96,165,250,0.12);
+  color:#7fb0f5;
+}
+
+.badge-cancelada{
+  background:rgba(217,119,119,0.12);
+  color:#d97777;
+}
+
+.acciones-cell{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.btn-icon{
+  width:32px;
+  height:32px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--surface-2);
+  color:var(--text-muted);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:0.85rem;
+  transition:all 0.15s ease;
+}
+
+.btn-icon:hover{
+  border-color:var(--gold);
+  color:var(--gold-bright);
+}
+
+.btn-icon.danger:hover{
+  border-color:#d97777;
+  color:#d97777;
+}
+
+.btn-icon.confirm:hover{
+  border-color:var(--persona);
+  color:var(--persona);
+}
+
+.zona-mesa{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.zona-nombre{
+  color:var(--text);
+  font-weight:600;
+  font-size:0.88rem;
+}
+
+.mesa-info{
+  color:var(--text-muted);
+  font-size:0.78rem;
+}
+
+.fecha-cell{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.85rem;
+}
+
+.fecha-dia{
+  color:var(--text);
+}
+
+.fecha-hora{
+  color:var(--text-muted);
+}
+
+.calendar-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.calendar-header h3{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  color:var(--text);
+  margin:0;
+}
+
+.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:6px;
+}
+
+.calendar-day-label{
+  text-align:center;
+  font-size:0.7rem;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  font-weight:600;
+  padding-bottom:6px;
+}
+
+.calendar-day{
+  aspect-ratio:1;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--surface-2);
+  padding:6px;
+  cursor:pointer;
+  position:relative;
+  transition:all 0.15s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.calendar-day:hover{
+  border-color:var(--gold);
+}
+
+.calendar-day.empty{
+  background:transparent;
+  border:none;
+  cursor:default;
+}
+
+.calendar-day.today{
+  border-color:var(--gold-bright);
+  box-shadow:inset 0 0 0 1px var(--gold-bright);
+}
+
+.calendar-day.selected{
+  background:rgba(205,161,90,0.12);
+  border-color:var(--gold);
+}
+
+.day-number{
+  font-size:0.8rem;
+  color:var(--text);
+  font-weight:600;
+}
+
+.day-dots{
+  display:flex;
+  gap:3px;
+  margin-top:auto;
+  flex-wrap:wrap;
+}
+
+.day-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+}
+
+.day-dot.P{
+  background:var(--gold-bright);
+}
+
+.day-dot.C{
+  background:var(--persona);
+}
+
+.day-dot.A{
+  background:#7fb0f5;
+}
+
+.day-dot.X{
+  background:#d97777;
+}
+
+.dia-seleccionado{
+  margin-top:24px;
+  border-top:1px solid var(--border);
+  padding-top:20px;
+}
+
+.dia-seleccionado h4{
+  font-family:'Fraunces',serif;
+  color:var(--text);
+  margin:0 0 14px;
+}
+
+.cliente-chip{
+  margin-top:8px;
+  padding:10px 14px;
+  background:var(--surface-2);
+  border:1px solid var(--gold);
+  border-radius:10px;
+  color:var(--text);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:0.85rem;
+}
+
+.cliente-chip button{
+  background:none;
+  border:none;
+  color:var(--text-muted);
+  cursor:pointer;
+  font-size:1rem;
+}
+
+@media (max-width: 640px){
+  .toolbar{
+    flex-direction:column;
+  }
+  thead th:nth-child(2), tbody td:nth-child(2){
+    display:none;
+  }
+}

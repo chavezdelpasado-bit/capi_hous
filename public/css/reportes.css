@@ -1,0 +1,156 @@
+/* ===========================
+   REPORTES
+=========================== */
+
+.reportes-container{
+    padding:30px;
+    animation:fadeIn .3s ease;
+}
+
+.reportes-card{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.reportes-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.reportes-header h2{
+    font-size:28px;
+    color:#222;
+}
+
+.reportes-filtros{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.reportes-filtros select{
+    padding:10px 14px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+}
+
+.reportes-filtros button{
+    border:none;
+    cursor:pointer;
+    padding:11px 18px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.25s;
+}
+
+#btnGenerarReporte{
+    background:#111827;
+    color:white;
+}
+
+#btnGenerarReporte:hover{
+    background:#000;
+}
+
+#btnPDF{
+    background:#dc2626;
+    color:white;
+}
+
+#btnPDF:hover{
+    background:#b91c1c;
+}
+
+#btnExcel{
+    background:#16a34a;
+    color:white;
+}
+
+#btnExcel:hover{
+    background:#15803d;
+}
+
+#contenedorReporte{
+    margin-top:25px;
+    overflow:auto;
+}
+
+/* ===========================
+   TABLA
+=========================== */
+
+.tabla-reportes{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+
+.tabla-reportes thead{
+    background:#111827;
+    color:white;
+}
+
+.tabla-reportes th,
+.tabla-reportes td{
+    padding:12px;
+    border:1px solid #e5e7eb;
+    text-align:left;
+}
+
+.tabla-reportes tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+.tabla-reportes tbody tr:hover{
+    background:#eef2ff;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    .reportes-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .reportes-filtros{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .reportes-filtros select,
+    .reportes-filtros button{
+        width:100%;
+    }
+
+}
+
+/* ===========================
+   ANIMACIÓN
+=========================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
